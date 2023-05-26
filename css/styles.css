@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+
+}
+body{
+    
+    background-color: #43425d;
+    
+}
+
+.Contenedor_todo{
+    width: 770px;
+    height: 600px;
+    background-color: #43425d;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow:
+       inset 0 -3em 3em rgba(0,0,0,0.1),
+             0 0  0 2px #38374c,
+             0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+.Img{
+    
+    width: 220px;
+    height: 260px;
+}
