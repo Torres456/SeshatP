@@ -19,7 +19,7 @@
 </div>
 
 <div class="letras">
-    <h1>Toda la administracion de tu negocio en un solo lugar</h1>
+    <h1>Toda la administración de tu negocio, en un solo lugar</h1>
 </div>
 
 <div class="letras">
