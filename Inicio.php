@@ -14,7 +14,7 @@ if ($varSesion==''|| $varSesion==null) {
     <link rel="stylesheet" href="css/inicio.css?see=1.4">
     <title>Seshat</title>
 </head>
-<body id="body">
+<body>
 
    <?php
    require('global/cabesera.php');
