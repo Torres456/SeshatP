@@ -1,39 +1,58 @@
-//Ejecutar función en el evento click
-document.getElementById("btn_open").addEventListener("click", open_close_menu);
+(function(){
+    const listElements = document.querySelectorAll('.menu__item--show');
+    const list = document.querySelector('.menu__links');
+    const menu = document.querySelector('.menu__hamburguer');
 
-//Declaramos variables
-var side_menu = document.getElementById("menu_side");
-var btn_open = document.getElementById("btn_open");
-var body = document.getElementById("body");
+    const addClick = ()=>{
+        listElements.forEach(element =>{
+            element.addEventListener('click', ()=>{
 
-//Evento para mostrar y ocultar menú
-    function open_close_menu(){
-        body.classList.toggle("body_move");
-        side_menu.classList.toggle("menu__side_move");
+                
+                let subMenu = element.children[1];
+                let height = 0;
+                element.classList.toggle('menu__item--active');
+
+
+                if(subMenu.clientHeight === 0){
+                    height = subMenu.scrollHeight;
+                }
+
+                subMenu.style.height = `${height}px`;
+
+            });
+        });
     }
 
-//Si el ancho de la página es menor a 760px, ocultará el menú al recargar la página
+    const deleteStyleHeight = ()=>{
+        listElements.forEach(element=>{
 
-if (window.innerWidth < 760){
+            if(element.children[1].getAttribute('style')){
+                element.children[1].removeAttribute('style');
+                element.classList.remove('menu__item--active');
+            }
 
-    body.classList.add("body_move");
-    side_menu.classList.add("menu__side_move");
-}
-
-//Haciendo el menú responsive(adaptable)
-
-window.addEventListener("resize", function(){
-
-    if (window.innerWidth > 760){
-
-        body.classList.remove("body_move");
-        side_menu.classList.remove("menu__side_move");
+        });
     }
 
-    if (window.innerWidth < 760){
 
-        body.classList.add("body_move");
-        side_menu.classList.add("menu__side_move");
+    window.addEventListener('resize', ()=>{
+        if(window.innerWidth > 800){
+            deleteStyleHeight();
+            if(list.classList.contains('menu__links--show'))
+                list.classList.remove('menu__links--show');
+
+        }else{
+            addClick();
+        }
+    });
+
+    if(window.innerWidth <= 800){
+        addClick();
     }
 
-});
+    menu.addEventListener('click', ()=> list.classList.toggle('menu__links--show'));
+
+
+
+})();
+
