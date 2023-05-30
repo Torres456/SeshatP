@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+  }
+
+  .contenedor_formulario{
+     /* background-color: aqua;  */
+    width: 500px;
+  }
+
+  .formulario__label{
+font-size: 19px;
+  }
+
+  .formulario__grupo{
+padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+     
+  }
+  .formulario__input{
+    font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid gray;
+  outline: 0;
+  font-size: 1.3rem;
+  color: rgb(0, 0, 0);
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  }
+  
