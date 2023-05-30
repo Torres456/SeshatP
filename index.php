@@ -9,8 +9,7 @@
     
 </head>
 <body>
-<h2>Pagina Principa2</h2>
-=======
+
 <div class="Contenedor_todo"  id="contenido">
 <div class="Img">
 <img src="assets/images/Flor.png" >
