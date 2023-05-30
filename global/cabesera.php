@@ -1,67 +1,59 @@
 <head>
-    <link rel="stylesheet" href="css/cabesera.css?see=1.2">
+    <link rel="stylesheet" href="css/cabesera.css">
 
-    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
-<header>
-        <div class="icon__menu">
-            <i class="fas fa-bars" id="btn_open"></i>
-        </div>
-    </header>
+<nav class="menu">
+        <section class="menu__container">
+            <h1 class="menu__logo">Seshat</h1>
 
-    <div class="menu__side" id="menu_side">
+            <ul class="menu__links">
+                <li class="menu__item">
+                    <a href="inicio.php" class="menu__link">Home</a>
+                </li>
+    
+                <li class="menu__item menu__item--show">
+                    <a href="#" class="menu__link">Registros<img src="./assets/svg/menu.svg" class="menu__arrow"></a>
+    
+                    <ul class="menu__nesting">
+                        <li class="menu__inside">
+                            <a href="registros.php" class="menu__link menu__link--inside">Registro de personal</a>
+                        </li>
+                        <li class="menu__inside">
+                            <a href="#" class="menu__link menu__link--inside">About 2</a>
+                        </li>
+                        <li class="menu__inside">
+                            <a href="#" class="menu__link menu__link--inside">About 3</a>
+                        </li>
+                    </ul>
+                </li>
+    
+                <li class="menu__item  menu__item--show">
+                    <a href="#" class="menu__link">Projects  <img src="./assets/svg/menu.svg" class="menu__arrow"></a>
+    
+                    <ul class="menu__nesting">
+                        <li class="menu__inside">
+                            <a href="#" class="menu__link menu__link--inside">Projects 1</a>
+                        </li>
+                        <li class="menu__inside">
+                            <a href="#" class="menu__link menu__link--inside">Projects 2</a>
+                        </li>
+                        <li class="menu__inside">
+                            <a href="#" class="menu__link menu__link--inside">Projects 3</a>
+                        </li>
+                    </ul>
+                </li>
+    
+                <li class="menu__item">
+                    <a href="#" class="menu__link">Contact</a>
+                </li>
+    
+            </ul>
 
-        <div class="name__page">
-        <i class="fa-sharp fa-solid fa-s"></i>
-            <h4>Seshat</h4>
-        </div>
+            <div class="menu__hamburguer">
+                <img src="./assets/images/menu-m.png" class="menu__img">
+            </div>
+        </section>
 
-        <div class="options__menu">	
+    </nav>
 
-            <a href="inicio.php" class="selected">
-                <div class="option">
-                    <i class="fas fa-home" title="Inicio"></i>
-                    <h4>Inicio</h4>
-                </div>
-            </a>
-
-            <a href="registros.php">
-                <div class="option">
-                <i class="fa-solid fa-book"></i>
-                    <h4>Registros</h4>
-                </div>
-            </a>
-            
-            <a href="#">
-                <div class="option">
-                    <i class="fas fa-video" title="Cursos"></i>
-                    <h4>Cursos</h4>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="option">
-                    <i class="far fa-sticky-note" title="Blog"></i>
-                    <h4>Blog</h4>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="option">
-                    <i class="far fa-id-badge" title="Contacto"></i>
-                    <h4>Contacto</h4>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="option">
-                    <i class="far fa-address-card" title="Nosotros"></i>
-                    <h4>Nosotros</h4>
-                </div>
-            </a>
-
-        </div>
-
-    </div>
-
-    <script src="js/cabesera.js"></script>
+    <script src="js/cabesera.js?see=1.3"></script>
