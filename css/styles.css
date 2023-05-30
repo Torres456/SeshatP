@@ -1,0 +1,246 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #43425d;
+}
+.Contenedor_todo {
+  width: 770px;
+  height: 600px;
+  background-color: #43425d;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px #38374c,
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+.Img {
+  width: 220px;
+  height: 260px;
+}
+.Img img {
+  width: 200px;
+  height: 200px;
+}
+.Img2 {
+  margin-top: -220px;
+  margin-left: 200px;
+}
+.Img2 img {
+  width: 350px;
+  height: 150px;
+}
+.letras {
+  font-size: 10px;
+  color: aliceblue;
+  padding: 5px;
+  text-align: center;
+}
+.contenedor_formulario {
+  color: #ffffff;
+  font-size: 17px;
+  text-align: center;
+}
+.formulario_input {
+  width: 35%;
+  background: #ffffff;
+  border: 3px solid transparent;
+  border-radius: 3px;
+  height: 30px;
+  transition: 0.3s ease all;
+}
+.Formulario_error {
+  font-size: 12px;
+  margin-bottom: 0;
+  display: none;
+}
+.formulario_mensaje {
+  text-align: center;
+  height: 35px;
+  line-height: 45px;
+  background: #f66060;
+  padding: 0 15px;
+  border-radius: 3px;
+  margin-top: 10px;
+  display: none;
+}
+.btn_entrar {
+  margin-top: 20px;
+  text-align: center;
+}
+.Formulario_btn {
+  height: 35px;
+  line-height: 30px;
+  width: 35%;
+  background: #06c7e4;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.1s ease all;
+}
+.formulario_mensaje-activo{
+    display: block;
+}
+.Formulario_error-activo{
+    display: block;
+}
+@media (max-width: 900px) {
+  .Contenedor_todo {
+    width: 700px;
+  }
+  .Img img {
+    width: 160px;
+    height: 160px;
+  }
+  .Img2 img {
+    width: 380px;
+    height: 120px;
+  }
+
+  .Img2 {
+    margin-top: -240px;
+    margin-left: 150px;
+  }
+  .letras {
+    font-size: 12px;
+  }
+
+  .formulario_input {
+    width: 50%;
+    height: 40px;
+    font-size: 20px;
+  }
+  .contenedor_formulario {
+    font-size: 25px;
+  }
+  .Formulario_btn {
+    height: 40px;
+    width: 50%;
+    font-size: 25px;
+  }
+  .formulario_mensaje {
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 700px) {
+  .Contenedor_todo {
+    margin-top: 20px;
+    width: 600px;
+  }
+  .formulario_input {
+    
+    font-size: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .Contenedor_todo {
+    width: 500px;
+  }
+
+  .Img img {
+    width: 130px;
+    height: 130px;
+  }
+  .Img2 img {
+    width: 280px;
+    height: 110px;
+  }
+  .Img2 {
+    margin-left: 120px;
+  }
+
+  .letras {
+    font-size: 10px;
+  }
+}
+@media (max-width: 500px) {
+  .Contenedor_todo {
+    width: 400px;
+  }
+  .Img img {
+    width: 110px;
+    height: 110px;
+  }
+  .Img2 img {
+    width: 240px;
+    height: 100px;
+    /* margin-left: -20px;   */
+  }
+  .Img2 {
+    margin-left: 100px;
+  }
+  .letras {
+    font-size: 9px;
+  }
+  .contenedor_formulario {
+    font-size: 20px;
+  }
+  .formulario_input {
+    width: 50%;
+    height: 30px;
+    font-size: 15px;
+  }
+  .Formulario_btn {
+    height: 30px;
+    width: 50%;
+    font-size: 20px;
+  }
+}
+@media (max-width: 400px) {
+  .Contenedor_todo {
+    width: 350px;
+  }
+  .Img2 {
+    margin-left: 90px;
+  }
+}
+@media (max-width: 370px) {
+  .Contenedor_todo {
+    width: 320px;
+  }
+  .Img2 {
+    margin-left: 50px;
+  }
+  .Img img {
+    width: 70px;
+    height: 70px;
+  }
+  .Img2 img {
+    width: 230px;
+    height: 70px;
+  }
+  .formulario_mensaje {
+    height: 30px;
+    line-height: 30px;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 315px) {
+  .Contenedor_todo {
+    width: 220px;
+  }
+  .formulario_mensaje {
+    height: 40px;
+    line-height: 30px;
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  .Img img {
+    width: 60px;
+    height: 60px;
+  }
+  .Img2 img {
+    width: 160px;
+    height: 60px;
+  }
+  .Img2 {
+    margin-left: 40px;
+  }
+}
