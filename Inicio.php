@@ -20,7 +20,7 @@ if ($varSesion==''|| $varSesion==null) {
    require('global/cabesera.php');
    }
    ?>
-    <h1>Hola torres</h1>
+    <h1>Hola</h1>
     <h2>torres</h2>
     
 </body>
