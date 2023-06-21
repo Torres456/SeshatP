@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" href="css/cabesera.css">
+    <link rel="stylesheet" href="css/cabesera.css?see=1.2">
 
 </head>
 <nav class="menu">
@@ -19,7 +19,7 @@
                             <a href="registros.php" class="menu__link menu__link--inside">Registro de personal</a>
                         </li>
                         <li class="menu__inside">
-                            <a href="#" class="menu__link menu__link--inside">About 2</a>
+                            <a href="#" class="menu__link menu__link--inside">Registro de Productos</a>
                         </li>
                         <li class="menu__inside">
                             <a href="#" class="menu__link menu__link--inside">About 3</a>

@@ -1,27 +1,51 @@
+<?php
+session_start();
+
+$varSesion=$_SESSION["usuario"];
+if ($varSesion==''|| $varSesion==null) {
+    header("location:index.php");
+ }else{
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/registros.css?see=1.3">
-    <title>Registro Personal</title>
+    <link rel="stylesheet" href="css/registros.css">
+    <title>Modificacion de Usuario</title>
 </head>
-<body id="body">
+<body>
 <?php
+   include "Bd/conexion.php";
    require('global/cabesera.php');
+ }
+
+ try {
+    $idUser= $_GET['Id'];
+    $sql="SELECT * FROM Personal WHERE Id_personal='$idUser'";
+    $respuesta=mysqli_query($conexion,$sql);
+    $data=mysqli_fetch_array($respuesta);   
+       } catch (Exception $e) {
+        echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+    }
 
    ?>
-
 <div class="contenedor_formulario" title="Registro de personal">
-<h1>Registro de personal</h1>
+<h1>Modificacion de Usuario</h1>
 
 <form action="" class="formulario" id="formulario">
+
+<div class="formulario__grupo" id="grupo__Id">
+    <label for="Id" class="formulario__label">Id:</label>
+    <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="Id" id="Id" placeholder="Id" value="<?php echo $data["Id_personal"]?>" disabled>
+            </div>
+    </div>
 
     <div class="formulario__grupo" id="grupo__Nombre">
     <label for="Nombre" class="formulario__label">Nombre:</label>
     <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="Nombre" id="Nombre" placeholder="Nombre">
+                <input type="text" class="formulario__input" name="Nombre" id="Nombre" placeholder="Nombre" value="<?php echo $data["nombre"]?>">
             </div>
             <p class="formulario__input-error">El Nombre solo puede contener letras.</p>
     </div>
@@ -29,7 +53,7 @@
     <div class="formulario__grupo" id="grupo__ApellidoP">
     <label for="Nombre" class="formulario__label">Apellido Paterno:</label>
     <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="ApellidoP" id="ApellidoP" placeholder="Apellido Paterno">
+                <input type="text" class="formulario__input" name="ApellidoP" id="ApellidoP" placeholder="Apellido Paterno" value="<?php echo $data["apellidoP"]?>">
             </div>
             <p class="formulario__input-error">El Apellido solo puede contener letras. </p>
     </div>
@@ -37,7 +61,7 @@
     <div class="formulario__grupo" id="grupo__ApellidoM">
     <label for="Nombre" class="formulario__label">Apellido materno:</label>
     <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="ApellidoM" id="ApellidoM" placeholder="Apellido materno">
+                <input type="text" class="formulario__input" name="ApellidoM" id="ApellidoM" placeholder="Apellido materno" value="<?php echo $data["apellidoM"]?>">
             </div>
             <p class="formulario__input-error">El Apellido solo puede contener letras. </p>
     </div>
@@ -45,23 +69,22 @@
     <div class="Select_sexo  select">
             <label for="sex"  class="formulario__label">Sexo:</label>
         <select name="sexo" id="sexo">
-            <option value="0">Seleccione</option>
-            <option value="Hombre">Hombre</option>
-            <option value="Mujer">Mujer</option>
+            <option  <?php echo $data["sexo"]==='Hombre'?"selected='selected'":""?> value="Hombre">Hombre</option>
+            <option <?php echo $data["sexo"]==='Mujer'?"selected='selected'":""?> value="Mujer">Mujer</option>
         </select>
         </div>
 
         <div class="formulario__grupo" id="grupo__Fecha_nacimiento">
             <label for="Fecha_nacimiento" class="formulario__label">Fecha de Nacimiento:</label>
             <div class="formulario__grupo-input">
-                <input type="date" id="Date">
+                <input type="date" id="Date" min="1950-01-01" max="2004-01-01">
             </div>
         </div>
          
         <div class="formulario__grupo" id="grupo__Numero_celular">
     <label for="Nombre" class="formulario__label">Numero de celular:</label>
     <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="Numero_celular" id="Numero_celular" placeholder="Numero de celular">
+                <input type="text" class="formulario__input" name="Numero_celular" id="Numero_celular" placeholder="Numero de celular" value="<?php echo $data["numero_cel"]?>">
             </div>
             <p class="formulario__input-error">El Numero de celular solo puede contener numeros. </p>
     </div>
@@ -69,7 +92,7 @@
     <div class="formulario__grupo" id="grupo__Numero_casa">
     <label for="Nombre" class="formulario__label">Numero de casa:</label>
     <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="Numero_casa" id="Numero_casa" placeholder="Numero de casa">
+                <input type="text" class="formulario__input" name="Numero_casa" id="Numero_casa" placeholder="Numero de casa" value="<?php echo $data["numero_cas"]?>">
             </div>
             <p class="formulario__input-error">El Numero de casa solo puede contener numeros. </p>
     </div>
@@ -78,7 +101,7 @@
     <div class="formulario__grupo" id="grupo__Correo">
     <label for="Nombre" class="formulario__label">Correo:</label>
     <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="Correo" id="Correo" placeholder="Correo">
+                <input type="text" class="formulario__input" name="Correo" id="Correo" placeholder="Correo" value="<?php echo $data["correo"]?>">
             </div>
             <p class="formulario__input-error">No pertenece a un correo</p>
     </div>
@@ -86,7 +109,7 @@
     <div class="formulario__grupo" id="grupo__Nombre_usuario">
     <label for="Nombre_usuario" class="formulario__label">Nombre de usuario:</label>
     <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="Nombre_usuario" id="Nombre_usuario" placeholder="Nombre de usuario">
+                <input type="text" class="formulario__input" name="Nombre_usuario" id="Nombre_usuario" placeholder="Nombre de usuario" value="<?php echo $data["usuario"]?>">
             </div>
             <p class="formulario__input-error">El Nombre de usuario solo puede contener letras.</p>
     </div>
@@ -94,7 +117,7 @@
     <div class="formulario__grupo" id="grupo__Contraseña">
     <label for="Nombre" class="formulario__label">Contraseña:</label>
     <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="Contraseña" id="Contraseña" placeholder="Contraseña">
+                <input type="text" class="formulario__input" name="Contraseña" id="Contraseña" placeholder="Contraseña" value="<?php echo $data["contraseña"]?>">
             </div>
             <p class="formulario__input-error">La Contraseña solo puede contener letras. </p>
     </div>
@@ -102,16 +125,15 @@
     <div class="Select_usuario  select">
             <label for="sex"  class="formulario__label">Usuario:</label>
         <select name="usuario" id="usuario">
-            <option value="0">Seleccione</option>
-            <option value="Administrador">Administrador</option>
-            <option value="Trabajador">Trabajador</option>
+            <option <?php echo $data["tipo_Us"]==='Administrador'?"selected='selected'":""?> value="Administrador">Administrador</option>
+            <option <?php echo $data["tipo_Us"]==='Trabajador'?"selected='selected'":""?> value="Trabajador">Trabajador</option>
         </select>
         </div>
 
         <div class="formulario__grupo" id="grupo__Nacionalidad">
     <label for="Nombre" class="formulario__label">Nacionalidad:</label>
     <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="Nacionalidad" id="Nacionalidad" placeholder="Nacionalidad">
+                <input type="text" class="formulario__input" name="Nacionalidad" id="Nacionalidad" placeholder="Nacionalidad" value="<?php echo $data["nacionalidad"]?>">
             </div>
             <p class="formulario__input-error">La Nacionalidad solo puede contener letras. </p>
     </div>
@@ -119,22 +141,15 @@
     <div class="formulario__grupo" id="grupo__Curp">
     <label for="Nombre" class="formulario__label">Curp:</label>
     <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="Curp" id="Curp" placeholder="Curp">
+                <input type="text" class="formulario__input" name="Curp" id="Curp" placeholder="Curp" value="<?php echo $data["curp"]?>">
             </div>
             <p class="formulario__input-error">El curp solo puede contener letras y numeros. </p>
     </div>
 
-    <!-- <div class="formulario__grupo" id="grupo__Domicilio">
-    <label for="Nombre" class="formulario__label">Domicilio:</label>
-    <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="Domicilio" id="Domicilio" placeholder="Domicilio">
-            </div>
-    </div> -->
-
     <div class="formulario__grupo" id="grupo__Estado">
     <label for="Nombre" class="formulario__label">Estado:</label>
     <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="Estado" id="Estado" placeholder="Estado">
+                <input type="text" class="formulario__input" name="Estado" id="Estado" placeholder="Estado" value="<?php echo $data["estado"]?>">
             </div>
             <p class="formulario__input-error">El Estado solo puede contener letras. </p>
     </div>
@@ -142,7 +157,7 @@
     <div class="formulario__grupo" id="grupo__Municipio">
     <label for="Nombre" class="formulario__label">Municipio:</label>
     <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="Municipio" id="Municipio" placeholder="Municipio">
+                <input type="text" class="formulario__input" name="Municipio" id="Municipio" placeholder="Municipio" value="<?php echo $data["municipio"]?>">
             </div>
             <p class="formulario__input-error">El Municipio solo puede contener letras. </p>
     </div>
@@ -150,68 +165,20 @@
     <div class="formulario__grupo" id="grupo__Colonia">
     <label for="Nombre" class="formulario__label">Colonia:</label>
     <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="Colonia" id="Colonia" placeholder="Colonia">
+                <input type="text" class="formulario__input" name="Colonia" id="Colonia" placeholder="Colonia" value="<?php echo $data["colonia"]?>">
             </div>
             <p class="formulario__input-error">La colonia solo puede contener letras. </p>
     </div>
 
         <div class="formulario__grupo formulario__grupo-btn-enviar">
-            <button type="submit" class="formulario__btn" >Enviar</button>
+            <button type="submit" class="formulario__btn" >Modificar</button>
         </div>
 
 </form>
 
 </div>
-
-<section class="Empleados">
-    <div class="Empleados__Title">
-        <h2>Empleados Registrados</h2>
-    </div>
-
-    <div class="Empleados__contenedor__table">
-    <table class="usuarios">
-    <thead>
-        <tr>
-            <th scope="Id">ID</th>
-            <th scope="Id">Nombre</th>
-            <th scope="Apellido Paterno">Apellido Paterno</th>
-            <th scope="Apellido Paterno">Apellido Materno</th>
-            <th scope="Apellido Paterno">Telefono</th>
-            <th scope="Apellido Paterno">Correo</th>
-            <th scope="Apellido Paterno">Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        include "Bd/conexion.php";
-        $sql = $conexion-> query("SELECT Id_personal,nombre,apellidoP,apellidoM,numero_Cel,Correo FROM Personal");
-        while($resutado = $sql->fetch_assoc()){
-            ?>
-            <tr>
-                   <td scope="rows"><?php echo $resutado['Id_personal'] ?></td>
-                   <td scope="rows"><?php echo $resutado['nombre']?></td>
-                   <td scope="rows"><?php echo $resutado['apellidoP']?></td>
-                   <td scope="rows"><?php echo $resutado['apellidoM']?></td>
-                   <td scope="rows"><?php echo $resutado['numero_Cel'] ?></td>
-                   <td scope="rows"><?php echo $resutado['Correo'] ?></td>
-                   <td>
-                   <a href="Modificar_Us.php?Id=<?php echo $resutado['Id_personal']?>">Modificar</a>
-                   <a href="Eliminar.php?Id=<?php echo $resutado['Id_personal']?>">Eliminar</a>
-                   </td>
-            </tr>
-            <?php
-        }
-        ?>
-        
-    </tbody>
-</table>
-
-
-    </div>
-
-
-</section>
+    
 </body>
-<script src="js/RegPersonal.js?see=1.2"></script>
+<script src="js/ModPersonal.js"></script>
 <script src="js/jquery-3.2.1.min.js"></script>
 </html>

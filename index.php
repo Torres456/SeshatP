@@ -64,5 +64,5 @@
 </div>
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/login.js"></script>
+<script src="js/login.js?See=1.2"></script>
 </html>
